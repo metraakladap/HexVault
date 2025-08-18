@@ -14,9 +14,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.metraakladap.hexvault.viewmodel.OnboardingViewModel
+import com.metraakladap.hexvault.R
 
 @Composable
 fun OnboardingScreen(
@@ -36,19 +38,14 @@ fun OnboardingScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "Ваш seed (збережіть офлайн):",
-            textAlign = TextAlign.Center
-        )
+        Text(text = stringResource(id = R.string.seed_title), textAlign = TextAlign.Center)
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = state.mnemonicWords.joinToString(" "),
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = onContinue, enabled = state.isSeedCreated) {
-            Text("Я зберіг seed")
-        }
+        Button(onClick = onContinue, enabled = state.isSeedCreated) { Text(stringResource(id = R.string.seed_saved_cta)) }
     }
 }
 
