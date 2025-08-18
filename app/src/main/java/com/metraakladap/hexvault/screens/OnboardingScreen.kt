@@ -7,23 +7,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.metraakladap.hexvault.viewmodel.MainViewModel
+import com.metraakladap.hexvault.viewmodel.OnboardingViewModel
 
 @Composable
-fun MainScreen(
-    viewModel: MainViewModel
+fun OnboardingScreen(
+    viewModel: OnboardingViewModel,
+    onContinue: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
-    LaunchedEffect(Unit) { viewModel.loadPrice() }
+
+    LaunchedEffect(Unit) {
+        viewModel.ensureSeed()
+    }
 
     Column(
         modifier = Modifier
@@ -32,14 +36,20 @@ fun MainScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        if (state.isLoading) {
-            CircularProgressIndicator()
-        } else {
-            Text(text = "BTC/USD: ${state.btcUsdPrice?.let { String.format("$%.2f", it) } ?: "—"}")
-            Spacer(modifier = Modifier.height(12.dp))
-            state.errorMessage?.let { Text(text = it) }
-            Spacer(modifier = Modifier.height(12.dp))
-            Button(onClick = { viewModel.loadPrice() }) { Text("Оновити ціну") }
+        Text(
+            text = "Ваш seed (збережіть офлайн):",
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = state.mnemonicWords.joinToString(" "),
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = onContinue, enabled = state.isSeedCreated) {
+            Text("Я зберіг seed")
         }
     }
 }
+
+
