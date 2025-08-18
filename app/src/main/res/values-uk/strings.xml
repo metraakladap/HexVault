@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HexVault</string>
+    <string name="seed_title">Ваш seed (збережіть офлайн):</string>
+    <string name="seed_saved_cta">Я зберіг seed</string>
+    <string name="btc_usd">BTC/USD: %1$s</string>
+    <string name="refresh_price">Оновити ціну</string>
+    <string name="settings">Налаштування</string>
+    <string name="language">Мова</string>
+    <string name="lang_en">Англійська</string>
+    <string name="lang_uk">Українська</string>
+    <string name="lang_pl">Польська</string>
+    <string name="go_back">Назад</string>
+</resources>
+
