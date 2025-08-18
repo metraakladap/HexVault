@@ -65,4 +65,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Security / Keystore helpers
+    implementation(libs.security.crypto)
+    // Networking
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.okhttp.core)
+    implementation(libs.okhttp.logging)
+    implementation(libs.moshi.core)
+    implementation(libs.moshi.kotlin)
+
+    // Bitcoin (testnet) + BIP utilities
+    implementation(libs.bitcoinj.core)
+
+    // Optional: SQLCipher for encrypted local DB backups (add maven if needed)
+    // implementation(libs.sqlcipher.android)
 }
