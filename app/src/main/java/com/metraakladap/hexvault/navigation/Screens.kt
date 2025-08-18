@@ -4,6 +4,7 @@ enum class Screens(val route: String) {
     Main("main"),
     Vault("vault"),
     Loading("loading"),
-    Onboarding("onboarding")
+    Onboarding("onboarding"),
+    Settings("settings")
 
 }

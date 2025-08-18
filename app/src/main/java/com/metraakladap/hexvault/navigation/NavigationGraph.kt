@@ -10,9 +10,11 @@ import androidx.navigation.compose.composable
 import com.metraakladap.hexvault.screens.LoadingScreen
 import com.metraakladap.hexvault.screens.MainScreen
 import com.metraakladap.hexvault.screens.OnboardingScreen
+import com.metraakladap.hexvault.screens.SettingsScreen
 import com.metraakladap.hexvault.viewmodel.LoadingScreenViewModel
 import com.metraakladap.hexvault.viewmodel.MainViewModel
 import com.metraakladap.hexvault.viewmodel.OnboardingViewModel
+import com.metraakladap.hexvault.viewmodel.SettingsViewModel
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
@@ -46,7 +48,7 @@ fun NavigationGraph(navController: NavHostController) {
                  navController.getBackStackEntry(navController.graph.id)
              }
              val viewModel = hiltViewModel<MainViewModel>(parent)
-             MainScreen(viewModel)
+             MainScreen(viewModel, navController)
          }
 
          composable(Screens.Onboarding.route) { backStack ->
@@ -59,6 +61,14 @@ fun NavigationGraph(navController: NavHostController) {
                      popUpTo(Screens.Loading.route) { inclusive = true }
                  }
              }
+         }
+
+         composable(Screens.Settings.route) { backStack ->
+             val parent = remember(backStack) {
+                 navController.getBackStackEntry(navController.graph.id)
+             }
+             val viewModel = hiltViewModel<SettingsViewModel>(parent)
+             SettingsScreen(viewModel) { navController.popBackStack() }
          }
      }
 }
