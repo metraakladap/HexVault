@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.metraakladap.hexvault.viewmodel.OnboardingViewModel
 import com.metraakladap.hexvault.R
+import com.metraakladap.hexvault.ui.components.GradientBackground
 
 @Composable
 fun OnboardingScreen(
@@ -31,21 +32,23 @@ fun OnboardingScreen(
         viewModel.ensureSeed()
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = stringResource(id = R.string.seed_title), textAlign = TextAlign.Center)
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = state.mnemonicWords.joinToString(" "),
-            textAlign = TextAlign.Center
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = onContinue, enabled = state.isSeedCreated) { Text(stringResource(id = R.string.seed_saved_cta)) }
+    GradientBackground {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(text = stringResource(id = R.string.seed_title), textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = state.mnemonicWords.joinToString(" "),
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = onContinue, enabled = state.isSeedCreated) { Text(stringResource(id = R.string.seed_saved_cta)) }
+        }
     }
 }
 

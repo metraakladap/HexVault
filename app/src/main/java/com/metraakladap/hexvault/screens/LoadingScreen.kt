@@ -10,17 +10,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import com.metraakladap.hexvault.viewmodel.LoadingScreenViewModel
+import com.metraakladap.hexvault.ui.components.GradientBackground
 
 @Composable
 fun LoadingScreen(
     viewModel: LoadingScreenViewModel,
 ) {
     val state by viewModel.state.collectAsState()
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        CircularProgressIndicator()
+    GradientBackground {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            CircularProgressIndicator()
+        }
     }
 }

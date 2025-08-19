@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.metraakladap.hexvault.viewmodel.SettingsViewModel
 import com.metraakladap.hexvault.R
+import com.metraakladap.hexvault.ui.components.GradientBackground
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,23 +44,25 @@ fun SettingsScreen(
             )
         }
     ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-                .padding(16.dp)
-        ) {
-            Text(text = stringResource(id = R.string.language), style = MaterialTheme.typography.titleMedium)
-            Spacer(modifier = Modifier.height(8.dp))
+        GradientBackground {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .padding(16.dp)
+            ) {
+                Text(text = stringResource(id = R.string.language), style = MaterialTheme.typography.titleMedium)
+                Spacer(modifier = Modifier.height(8.dp))
 
-            LanguageRow(label = R.string.lang_en, selected = state.currentLocaleTag == "en") {
-                viewModel.setLocale("en")
-            }
-            LanguageRow(label = R.string.lang_uk, selected = state.currentLocaleTag == "uk") {
-                viewModel.setLocale("uk")
-            }
-            LanguageRow(label = R.string.lang_pl, selected = state.currentLocaleTag == "pl") {
-                viewModel.setLocale("pl")
+                LanguageRow(label = R.string.lang_en, selected = state.currentLocaleTag == "en") {
+                    viewModel.setLocale("en")
+                }
+                LanguageRow(label = R.string.lang_uk, selected = state.currentLocaleTag == "uk") {
+                    viewModel.setLocale("uk")
+                }
+                LanguageRow(label = R.string.lang_pl, selected = state.currentLocaleTag == "pl") {
+                    viewModel.setLocale("pl")
+                }
             }
         }
     }
