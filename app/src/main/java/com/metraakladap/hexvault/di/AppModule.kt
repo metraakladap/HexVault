@@ -2,6 +2,7 @@ package com.metraakladap.hexvault.di
 
 import android.content.Context
 import com.metraakladap.hexvault.crypto.SeedManager
+import com.metraakladap.hexvault.crypto.WalletManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +18,11 @@ object AppModule {
     @Singleton
     fun provideSeedManager(@ApplicationContext context: Context): SeedManager =
         SeedManager(context)
+
+    @Provides
+    @Singleton
+    fun provideWalletManager(seedManager: SeedManager): WalletManager =
+        WalletManager(seedManager)
 }
 
 
