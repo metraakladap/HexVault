@@ -11,5 +11,8 @@
     <string name="lang_uk">Українська</string>
     <string name="lang_pl">Польська</string>
     <string name="go_back">Назад</string>
+    <string name="your_address">Ваша BTC testnet-адреса:</string>
+    <string name="copy">Копіювати</string>
+    <string name="copied">Скопійовано</string>
 </resources>
 
