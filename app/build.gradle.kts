@@ -83,4 +83,7 @@ dependencies {
 
     // Optional: SQLCipher for encrypted local DB backups (add maven if needed)
     // implementation(libs.sqlcipher.android)
+
+    // QR code generation
+    implementation(libs.zxing.core)
 }
