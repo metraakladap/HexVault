@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,6 +19,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -133,11 +135,39 @@ fun MainScreen(
                                 ""
                             )
                         }
-                        var fee by androidx.compose.runtime.remember {
+                        var feeRate by androidx.compose.runtime.remember {
                             androidx.compose.runtime.mutableStateOf(
-                                "1000"
+                                state.feeRateSatsPerVb.toString()
                             )
                         }
+                        Text(text = "UTXO:")
+                        Spacer(modifier = Modifier.height(8.dp))
+                        state.availableUtxos.forEach { u ->
+                            val key = "${u.txid}:${u.vout}"
+                            val checked = state.selectedUtxoKeys.contains(key)
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Checkbox(checked = checked, onCheckedChange = {
+                                    viewModel.toggleUtxoSelection(u.txid, u.vout)
+                                })
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(text = "${u.txid.take(8)}...:${u.vout}  ${u.value} sats")
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        OutlinedTextField(
+                            value = feeRate,
+                            onValueChange = {
+                                feeRate = it
+                                it.toLongOrNull()?.let { fr -> viewModel.setFeeRate(fr) }
+                            },
+                            label = { Text("Fee rate (sats/vB)") }
+                        )
+                        state.estimatedFeeSats?.let { fee ->
+                            Spacer(modifier = Modifier.height(4.dp))
+                            val vbytes = state.estimatedVBytes ?: 0
+                            Text(text = "Estimated fee: ${fee} sats (${vbytes} vB)")
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
                         OutlinedTextField(
                             value = to,
                             onValueChange = { to = it },
@@ -147,17 +177,16 @@ fun MainScreen(
                             value = amount,
                             onValueChange = { amount = it },
                             label = { Text(stringResource(id = R.string.amount_sats)) })
-                        Spacer(modifier = Modifier.height(8.dp))
-                        OutlinedTextField(
-                            value = fee,
-                            onValueChange = { fee = it },
-                            label = { Text(stringResource(id = R.string.fee_sats)) })
                         Spacer(modifier = Modifier.height(12.dp))
                         Button(onClick = {
                             val a = amount.toLongOrNull() ?: 0L
-                            val f = fee.toLongOrNull() ?: 0L
-                            if (to.isNotBlank() && a > 0 && f >= 0) {
-                                viewModel.sendTestnet(to, a, f)
+                            if (viewModel.validateSend(to, a)) {
+                                val fee = state.estimatedFeeSats ?: 0L
+                                viewModel.sendTestnet(to, a, fee)
+                            } else {
+                                state.warningMessage?.let { msg ->
+                                    coroutineScope.launch { snackbarHostState.showSnackbar(msg) }
+                                }
                             }
                         }, enabled = state.isSending.not()) {
                             Text(stringResource(id = R.string.send))

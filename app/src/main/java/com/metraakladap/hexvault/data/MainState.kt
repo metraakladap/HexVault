@@ -9,4 +9,10 @@ data class MainState (
     val confirmedBalanceSats: Long? = null,
     val isSending: Boolean = false,
     val lastBroadcastTxId: String? = null,
+    val availableUtxos: List<com.metraakladap.hexvault.network.BlockstreamUtxo> = emptyList(),
+    val selectedUtxoKeys: Set<String> = emptySet(),
+    val feeRateSatsPerVb: Long = 5L,
+    val estimatedFeeSats: Long? = null,
+    val estimatedVBytes: Int? = null,
+    val warningMessage: String? = null,
 )
