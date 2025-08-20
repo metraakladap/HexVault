@@ -1,7 +1,9 @@
 package com.metraakladap.hexvault.di
 
 import com.metraakladap.hexvault.network.CoinGeckoApi
+import com.metraakladap.hexvault.network.BlockstreamApi
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +31,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMoshi(): Moshi = Moshi.Builder().build()
+    fun provideMoshi(): Moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
 
     @Provides
     @Singleton
@@ -46,6 +50,16 @@ object NetworkModule {
     @Singleton
     fun provideCoinGeckoApi(retrofit: Retrofit): CoinGeckoApi =
         retrofit.create(CoinGeckoApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideBlockstreamApi(okHttpClient: OkHttpClient, moshi: Moshi): BlockstreamApi =
+        Retrofit.Builder()
+            .baseUrl("https://blockstream.info/testnet/")
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(BlockstreamApi::class.java)
 }
 
 
