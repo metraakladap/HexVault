@@ -5,6 +5,8 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import org.bitcoinj.crypto.MnemonicCode
 import java.security.SecureRandom
+import javax.crypto.AEADBadTagException
+import java.security.GeneralSecurityException
 
 class SeedManager(private val appContext: Context) {
 
@@ -24,7 +26,15 @@ class SeedManager(private val appContext: Context) {
         )
     }
 
-    fun hasSeed(): Boolean = prefs.contains(KEY_SEED_MNEMONIC)
+    fun hasSeed(): Boolean = try {
+        prefs.contains(KEY_SEED_MNEMONIC)
+    } catch (e: AEADBadTagException) {
+        resetCorruptedStore()
+        false
+    } catch (e: GeneralSecurityException) {
+        resetCorruptedStore()
+        false
+    }
 
     fun generateAndStoreMnemonic(): List<String> {
         check(!hasSeed()) { "Seed already exists" }
@@ -35,9 +45,21 @@ class SeedManager(private val appContext: Context) {
         return words
     }
 
-    fun getMnemonicOnce(): List<String>? {
+    fun getMnemonicOnce(): List<String>? = try {
         val raw = prefs.getString(KEY_SEED_MNEMONIC, null) ?: return null
-        return raw.split(" ")
+        raw.split(" ")
+    } catch (e: AEADBadTagException) {
+        resetCorruptedStore()
+        null
+    } catch (e: GeneralSecurityException) {
+        resetCorruptedStore()
+        null
+    }
+
+    private fun resetCorruptedStore() {
+        // If encrypted prefs were restored from backup without matching keystore key,
+        // wipe the stored file to avoid constant crashes and force re-onboarding.
+        appContext.deleteSharedPreferences(PREFS_NAME)
     }
 
     companion object {
