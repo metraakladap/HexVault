@@ -14,5 +14,11 @@
     <string name="your_address">Ваша BTC testnet-адреса:</string>
     <string name="copy">Копіювати</string>
     <string name="copied">Скопійовано</string>
+    <string name="balance_sats">Підтверджений баланс: %1$d sats</string>
+    <string name="send">Надіслати</string>
+    <string name="recipient">Одержувач</string>
+    <string name="amount_sats">Сума (sats)</string>
+    <string name="fee_sats">Комісія (sats)</string>
+    <string name="tx_sent">TX відправлено: %1$s</string>
 </resources>
 

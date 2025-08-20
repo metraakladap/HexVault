@@ -9,6 +9,12 @@
     <string name="your_address">Your BTC testnet address:</string>
     <string name="copy">Copy</string>
     <string name="copied">Copied</string>
+    <string name="balance_sats">Confirmed balance: %1$d sats</string>
+    <string name="send">Send</string>
+    <string name="recipient">Recipient</string>
+    <string name="amount_sats">Amount (sats)</string>
+    <string name="fee_sats">Fee (sats)</string>
+    <string name="tx_sent">TX sent: %1$s</string>
     <string name="lang_en">English</string>
     <string name="lang_uk">Ukrainian</string>
     <string name="lang_pl">Polish</string>
