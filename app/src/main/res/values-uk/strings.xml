@@ -20,5 +20,45 @@
     <string name="amount_sats">Сума (sats)</string>
     <string name="fee_sats">Комісія (sats)</string>
     <string name="tx_sent">TX відправлено: %1$s</string>
+    
+    <!-- Loading Screen -->
+    <string name="loading_subtitle">Безпечний Bitcoin гаманець</string>
+    <string name="loading_text">Ініціалізація...</string>
+    
+    <!-- Onboarding Screen -->
+    <string name="onboarding_welcome">Ласкаво просимо до HexVault</string>
+    <string name="onboarding_subtitle">Ваш безпечний Bitcoin гаманець</string>
+    <string name="onboarding_warning">⚠️ Збережіть цей seed у безпечному місці!</string>
+    <string name="onboarding_instructions">• Запишіть ці слова у правильному порядку\n• Зберігайте їх у безпечному місці\n• Ніколи не діліться ними з іншими</string>
+    
+    <!-- Main Screen -->
+    <string name="main_loading">Завантаження даних...</string>
+    <string name="bitcoin_price">Ціна Bitcoin</string>
+    <string name="your_wallet">Ваш гаманець</string>
+    <string name="balance">Баланс</string>
+    <string name="address">Адреса:</string>
+    <string name="qr_code_for_receiving">QR код для отримання</string>
+    <string name="send_bitcoin">Відправити Bitcoin</string>
+    <string name="available_utxos">Доступні UTXO:</string>
+    <string name="fee_rate_sats_vb">Комісія (sats/vB)</string>
+    <string name="estimated_fee">Орієнтовна комісія: %1$d sats (%2$d vB)</string>
+    <string name="close">Закрити</string>
+    
+    <!-- Settings Screen -->
+    <string name="app_settings">Налаштування додатку</string>
+    <string name="about_app">Про додаток</string>
+    <string name="version">Версія</string>
+    <string name="network_type">Тип мережі</string>
+    <string name="developer">Розробник</string>
+    <string name="security">Безпека</string>
+    <string name="security_seed_title">Seed фраза</string>
+    <string name="security_seed_desc">Ваш seed зберігається локально та зашифрований</string>
+    <string name="security_testnet_title">Testnet</string>
+    <string name="security_testnet_desc">Додаток працює з Bitcoin testnet для безпечного тестування</string>
+    <string name="security_local_title">Локальне зберігання</string>
+    <string name="security_local_desc">Всі дані зберігаються тільки на вашому пристрої</string>
+    
+    <!-- QR Code -->
+    <string name="tap_to_expand">Натисніть для розгортання</string>
 </resources>
 

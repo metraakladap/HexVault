@@ -19,4 +19,44 @@
     <string name="lang_uk">Ukrainian</string>
     <string name="lang_pl">Polish</string>
     <string name="go_back">Back</string>
+    
+    <!-- Loading Screen -->
+    <string name="loading_subtitle">Secure Bitcoin Wallet</string>
+    <string name="loading_text">Initializing...</string>
+    
+    <!-- Onboarding Screen -->
+    <string name="onboarding_welcome">Welcome to HexVault</string>
+    <string name="onboarding_subtitle">Your secure Bitcoin wallet</string>
+    <string name="onboarding_warning">⚠️ Save this seed in a safe place!</string>
+    <string name="onboarding_instructions">• Write these words in the correct order\n• Keep them in a safe place\n• Never share them with others</string>
+    
+    <!-- Main Screen -->
+    <string name="main_loading">Loading data...</string>
+    <string name="bitcoin_price">Bitcoin Price</string>
+    <string name="your_wallet">Your Wallet</string>
+    <string name="balance">Balance</string>
+    <string name="address">Address:</string>
+    <string name="qr_code_for_receiving">QR code for receiving</string>
+    <string name="send_bitcoin">Send Bitcoin</string>
+    <string name="available_utxos">Available UTXOs:</string>
+    <string name="fee_rate_sats_vb">Fee rate (sats/vB)</string>
+    <string name="estimated_fee">Estimated fee: %1$d sats (%2$d vB)</string>
+    <string name="close">Close</string>
+    
+    <!-- Settings Screen -->
+    <string name="app_settings">App Settings</string>
+    <string name="about_app">About App</string>
+    <string name="version">Version</string>
+    <string name="network_type">Network Type</string>
+    <string name="developer">Developer</string>
+    <string name="security">Security</string>
+    <string name="security_seed_title">Seed Phrase</string>
+    <string name="security_seed_desc">Your seed is stored locally and encrypted</string>
+    <string name="security_testnet_title">Testnet</string>
+    <string name="security_testnet_desc">App works with Bitcoin testnet for safe testing</string>
+    <string name="security_local_title">Local Storage</string>
+    <string name="security_local_desc">All data is stored only on your device</string>
+    
+    <!-- QR Code -->
+    <string name="tap_to_expand">Tap to expand</string>
 </resources>

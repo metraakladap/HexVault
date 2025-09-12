@@ -20,5 +20,45 @@
     <string name="amount_sats">Kwota (sats)</string>
     <string name="fee_sats">Opłata (sats)</string>
     <string name="tx_sent">TX wysłany: %1$s</string>
+    
+    <!-- Loading Screen -->
+    <string name="loading_subtitle">Bezpieczny portfel Bitcoin</string>
+    <string name="loading_text">Inicjalizacja...</string>
+    
+    <!-- Onboarding Screen -->
+    <string name="onboarding_welcome">Witamy w HexVault</string>
+    <string name="onboarding_subtitle">Twój bezpieczny portfel Bitcoin</string>
+    <string name="onboarding_warning">⚠️ Zapisz ten seed w bezpiecznym miejscu!</string>
+    <string name="onboarding_instructions">• Zapisz te słowa w prawidłowej kolejności\n• Przechowuj je w bezpiecznym miejscu\n• Nigdy nie udostępniaj ich innym</string>
+    
+    <!-- Main Screen -->
+    <string name="main_loading">Ładowanie danych...</string>
+    <string name="bitcoin_price">Cena Bitcoin</string>
+    <string name="your_wallet">Twój portfel</string>
+    <string name="balance">Balans</string>
+    <string name="address">Adres:</string>
+    <string name="qr_code_for_receiving">Kod QR do odbioru</string>
+    <string name="send_bitcoin">Wyślij Bitcoin</string>
+    <string name="available_utxos">Dostępne UTXO:</string>
+    <string name="fee_rate_sats_vb">Opłata (sats/vB)</string>
+    <string name="estimated_fee">Szacowana opłata: %1$d sats (%2$d vB)</string>
+    <string name="close">Zamknij</string>
+    
+    <!-- Settings Screen -->
+    <string name="app_settings">Ustawienia aplikacji</string>
+    <string name="about_app">O aplikacji</string>
+    <string name="version">Wersja</string>
+    <string name="network_type">Typ sieci</string>
+    <string name="developer">Deweloper</string>
+    <string name="security">Bezpieczeństwo</string>
+    <string name="security_seed_title">Fraza seed</string>
+    <string name="security_seed_desc">Twój seed jest przechowywany lokalnie i zaszyfrowany</string>
+    <string name="security_testnet_title">Testnet</string>
+    <string name="security_testnet_desc">Aplikacja działa z Bitcoin testnet do bezpiecznego testowania</string>
+    <string name="security_local_title">Lokalne przechowywanie</string>
+    <string name="security_local_desc">Wszystkie dane są przechowywane tylko na Twoim urządzeniu</string>
+    
+    <!-- QR Code -->
+    <string name="tap_to_expand">Dotknij aby rozwinąć</string>
 </resources>
 
