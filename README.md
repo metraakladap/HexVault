@@ -22,6 +22,9 @@ Non-custodial hot wallet for Bitcoin testnet, built with Kotlin and Jetpack Comp
 - Main: price ticker, address, balance, QR, send form (recipient, amount, fee rate, UTXO selection)
 - Settings: language selection (EN/UK/PL)
 
+  <img width="1408" height="2974" alt="Screenshot_20260130_202904" src="https://github.com/user-attachments/assets/6e768158-04fa-4dca-bf1e-c4a49b9e15be" />
+
+
 ### Security model
 
 - Seed and private keys are never stored in plaintext; they are encrypted with a per-device master key (Android Keystore)
