@@ -19,17 +19,23 @@ Non-custodial hot wallet for Bitcoin testnet, built with Kotlin and Jetpack Comp
   
 ## Screens (MVP)
 
-| Onboarding | Main | Send |
-|-----------|------|------|
-| ![](https://github.com/user-attachments/assets/6e768158-04fa-4dca-bf1e-c4a49b9e15be) | ![](https://github.com/user-attachments/assets/f8ddfe7a-8b85-4402-be2e-e18b68927088) | ![](https://github.com/user-attachments/assets/eb8479bb-a02f-4189-9fbd-b2b0b23ff2d1) |
+- **Onboarding**: generate and display BIP-39 seed (one-time)
+- **Main**: price ticker, address, balance, QR, send form (recipient, amount, fee rate, UTXO selection)
+- **Settings**: language selection (EN / UK / PL)
 
-| Balance | QR | Settings |
-|--------|----|----------|
-| ![](https://github.com/user-attachments/assets/1243369c-3ace-4d9d-b5d1-4d4d11601e6c) | ![](https://github.com/user-attachments/assets/7f0843a9-befc-4da2-b77a-b05d8a9d4141) | ![](https://github.com/user-attachments/assets/...) |
+<br />
 
-
-
-
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/6e768158-04fa-4dca-bf1e-c4a49b9e15be" width="240" /></td>
+    <td><img src="https://github.com/user-attachments/assets/f8ddfe7a-8b85-4402-be2e-e18b68927088" width="240" /></td>
+    <td><img src="https://github.com/user-attachments/assets/eb8479bb-a02f-4189-9fbd-b2b0b23ff2d1" width="240" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/7f0843a9-befc-4da2-b77a-b05d8a9d4141" width="240" /></td>
+    <td><img src="https://github.com/user-attachments/assets/1243369c-3ace-4d9d-b5d1-4d4d11601e6c" width="240" /></td>
+  </tr>
+</table>
 
 
 ### Security model
