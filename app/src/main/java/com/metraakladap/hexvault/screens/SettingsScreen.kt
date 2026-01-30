@@ -102,7 +102,6 @@ fun SettingsScreen(
                     Column(
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        // Заголовок
                         Text(
                             text = stringResource(id = R.string.app_settings),
                             style = MaterialTheme.typography.headlineSmall,
@@ -110,16 +109,13 @@ fun SettingsScreen(
                             color = MaterialTheme.colorScheme.onBackground
                         )
                         
-                        // Мова
                         LanguageSettingsCard(
                             currentLocale = state.currentLocaleTag,
                             onLocaleChange = { viewModel.setLocale(it) }
                         )
                         
-                        // Інформація про додаток
                         AppInfoCard()
                         
-                        // Безпека
                         SecurityInfoCard()
                     }
                 }
@@ -263,7 +259,7 @@ private fun AppInfoCard() {
 
 @Composable
 private fun SecurityInfoCard() {
-    ElevatedRoundedCard {
+    ElevatedRoundedCard(modifier = Modifier.fillMaxWidth()) {
         Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically
